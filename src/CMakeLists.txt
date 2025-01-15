@@ -11,7 +11,8 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_executable(${PROJECT_NAME} main.cpp
         utilities/RaylibOperators.h
         utilities/RaylibOperators.cpp
-        utilities/Circle.cpp)
+        utilities/Circle.cpp
+        utilities/Angle.cpp)
 
 # Add config.h.in file
 configure_file(config.h.in config.h)
