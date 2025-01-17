@@ -14,15 +14,7 @@ Angle::Angle(float value) : value(value) {
     normalize();
 }
 
-Angle Angle::operator+(Angle a) {
-    return {value + a.value};
-}
 
-Angle &Angle::operator+=(Angle a) {
-    value += a.value;
-    normalize();
-    return *this;
-}
 
 Angle Angle::operator+(float a) {
     return {value + a};
@@ -38,13 +30,7 @@ Angle::operator float() const {
     return value;
 }
 
-Angle Angle::operator-(Angle a) {
-    return {value - a.value};
-}
 
-Angle &Angle::operator-=(Angle a) {
-    return <#initializer#>;
-}
 
 Angle Angle::operator-(float a) {
     return {value - a};
@@ -72,7 +58,10 @@ float Angle::AngleDifference(Angle a, Angle b) {
     Angle* bigger = a.value < b.value ? &b : &a;
     float diff1 = bigger->value - smaller->value;
     float diff2 = smaller->value + 360 - bigger->value;
-    return diff1 < diff2 ? diff1 : -diff2;
+    // set both to positive
+    diff1 = diff1 < 0 ? -diff1 : diff1;
+    diff2 = diff2 < 0 ? -diff2 : diff2;
+    return diff1 < diff2 ? diff1 : diff2;
 }
 
 

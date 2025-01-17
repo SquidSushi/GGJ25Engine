@@ -14,13 +14,13 @@ public:
     Angle(float value);
     // ##Operators##
     //Addition
-    Angle operator+(Angle a);
-    Angle& operator+=(Angle a);
+    //Angle operator+(Angle a);
+    //Angle& operator+=(Angle a);
     Angle operator+(float a);
     Angle& operator+=(float a);
     //Subtraction
-    Angle operator-(Angle a);
-    Angle& operator-=(Angle a);
+    //Angle operator-(Angle a);
+    //Angle& operator-=(Angle a);
     Angle operator-(float a);
     Angle& operator-=(float a);
     // Conversion
