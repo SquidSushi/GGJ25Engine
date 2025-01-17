@@ -4,6 +4,7 @@
 #include "raylib.h"
 
 #include "config.h"
+#include "utilities/Tests.h"
 
 int main() {
     // Raylib initialization
@@ -11,7 +12,7 @@ int main() {
     SetConfigFlags(FLAG_WINDOW_RESIZABLE | FLAG_VSYNC_HINT);
     InitWindow(Game::ScreenWidth, Game::ScreenHeight, Game::PROJECT_NAME);
     SetTargetFPS(60);
-
+    AngleTests();
 #ifdef GAME_START_FULLSCREEN
     ToggleFullscreen();
 #endif
