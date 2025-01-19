@@ -19,6 +19,8 @@ void AngleTests(){
     float ba = Angle::AngleDifference(b, a); //should be -80
     float ca = Angle::AngleDifference(c, a); //should be +20
     float cb = Angle::AngleDifference(c, b); //should be +100
+    float oneeighty = Angle::AngleDifference(0, 180); //what will it be?
+    oneeighty = Angle::AngleDifference(180, 0); //what will it be?
     return;
 }
 

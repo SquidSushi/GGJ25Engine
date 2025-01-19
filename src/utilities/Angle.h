@@ -29,10 +29,12 @@ public:
     // Assignment
     Angle& operator=(float a);
 
+    //other
     float asRadians(); //Convert the angle to Radians
     static float AngleDifference(Angle from, Angle to); //Get the difference between two angles
     static float AngleDifference(float from, float to); //Get the difference between two angles
-
+    float as180(); //Convert the angle to be between -180 and 180
+    static float as180(float a); //Convert an angle to be between -180 and 180
 };
 
 
