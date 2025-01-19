@@ -2,19 +2,11 @@
 // Created by mrbau on 15.01.2025.
 //
 
-#include <cmath>
 #include "Angle.h"
 #include "raylib.h"
 
 void Angle::normalize() {
-    if (value >= 360){
-        int times = value / 360;
-        value -= 360 * times;
-    }
-    if (value < 0){
-        int times = value / 360;
-        value += 360 * ((-times) + 1);
-    }
+    value = normalize(value);
 }
 
 Angle::Angle(float value) : value(value) {
@@ -23,7 +15,7 @@ Angle::Angle(float value) : value(value) {
 
 
 
-Angle Angle::operator+(float a) {
+Angle Angle::operator+(float a) const {
     return {value + a};
 }
 
@@ -39,7 +31,7 @@ Angle::operator float() const {
 
 
 
-Angle Angle::operator-(float a) {
+Angle Angle::operator-(float a) const {
     return {value - a};
 }
 
@@ -55,7 +47,7 @@ Angle &Angle::operator=(float a) {
     return *this;
 }
 
-float Angle::asRadians() {
+float Angle::asRadians() const {
     return value * DEG2RAD;
 }
 
@@ -70,14 +62,26 @@ float Angle::AngleDifference(float from, float to) {
     return AngleDifference(Angle(from), Angle(to));
 }
 
-float Angle::as180() {
-    if (value > 180) return value - 360;
-    return value;
+float Angle::as180() const {
+    return as180(value);
 }
 
 float Angle::as180(float a) {
-    Angle angle(a); //this is probably pretty slow but will it ever really matter?
-    return angle.as180();
+    a = normalize(a);
+    if (a > 180) return a - 360;
+    return a;
+}
+
+float Angle::normalize(float a) { //I don't know if this is optimal, but we will figure that out when we get there.
+    if (a >= 360){
+        int times = a / 360;
+        a -= 360 * times;
+    }
+    if (a < 0){
+        int times = a / 360;
+        a += 360 * ((-times) + 1);
+    }
+    return a;
 }
 
 

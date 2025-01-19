@@ -2,6 +2,7 @@
 #include <algorithm>
 
 #include "raylib.h"
+#include "cmath"
 
 #include "config.h"
 #include "utilities/Tests.h"
