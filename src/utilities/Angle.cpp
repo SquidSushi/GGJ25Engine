@@ -52,16 +52,15 @@ float Angle::asRadians() {
     return value * DEG2RAD;
 }
 
-float Angle::AngleDifference(Angle a, Angle b) {
-    if (a.value == b.value) return 0;
-    Angle* smaller = a.value < b.value ? &a : &b;
-    Angle* bigger = a.value < b.value ? &b : &a;
-    float diff1 = bigger->value - smaller->value;
-    float diff2 = smaller->value + 360 - bigger->value;
-    // set both to positive
-    diff1 = diff1 < 0 ? -diff1 : diff1;
-    diff2 = diff2 < 0 ? -diff2 : diff2;
-    return diff1 < diff2 ? diff1 : diff2;
+float Angle::AngleDifference(Angle from, Angle to) { //returns angle between from and to. Adding the result of this function to from would result in the vlaue of to.
+    float diff = to.value - from.value;
+    if (diff > 180) diff -= 360;
+    if (diff <= -180) diff += 360;
+    return diff;
+}
+
+float Angle::AngleDifference(float from, float to) {
+    return AngleDifference(Angle(from), Angle(to));
 }
 
 

@@ -30,7 +30,8 @@ public:
     Angle& operator=(float a);
 
     float asRadians(); //Convert the angle to Radians
-    static float AngleDifference(Angle a, Angle b); //Get the difference between two angles
+    static float AngleDifference(Angle from, Angle to); //Get the difference between two angles
+    static float AngleDifference(float from, float to); //Get the difference between two angles
 
 };
 
